@@ -1,3 +1,4 @@
+# This file contains the utility functions for the project. Utlitiy means useful functions
 import yaml
 from networksecurity.exception.exception import NetworkSecurityException
 from networksecurity.logging.logger import logging
