@@ -1,0 +1,10 @@
+artifact_location: file:///Users/suhaass/Documents/Krish%20Naik/Projects/NetworkSecurity/mlruns/0/models/m-d0228b41d17c4431a4c40ca245de1c5a/artifacts
+creation_timestamp: 1757510407987
+experiment_id: '0'
+last_updated_timestamp: 1757510410029
+model_id: m-d0228b41d17c4431a4c40ca245de1c5a
+model_type: null
+name: model
+source_run_id: 2340a09a7ef54fc4963b608610ecee9f
+status: 2
+status_message: null
