@@ -8,6 +8,8 @@ import mlflow
 import mlflow.sklearn
 from urllib.parse import urlparse
 import dagshub
+import boto3
+import joblib
 
 from networksecurity.exception.exception import NetworkSecurityException 
 from networksecurity.logging.logger import logging
@@ -38,22 +40,44 @@ dagshub.init(
 )
 
 class ModelTrainer:
-    def __init__(self,model_trainer_config:ModelTrainerConfig,data_transformation_artifact:DataTransformationArtifact):
+    def __init__(self, model_trainer_config: ModelTrainerConfig, data_transformation_artifact: DataTransformationArtifact):
         try:
-            self.model_trainer_config=model_trainer_config
-            self.data_transformation_artifact=data_transformation_artifact
+            self.model_trainer_config = model_trainer_config
+            self.data_transformation_artifact = data_transformation_artifact
+
+            # S3 setup
+            self.s3_client = boto3.client("s3")
+            self.bucket_name = "netwwwworksecurity"   # your S3 bucket name
         except Exception as e:
-            raise NetworkSecurityException(e,sys)
+            raise NetworkSecurityException(e, sys)
+        
+    def upload_to_s3(self, local_file_path, s3_key):
+        """Helper to upload a local file to S3"""
+        try:
+            self.s3_client.upload_file(local_file_path, self.bucket_name, s3_key)
+            logging.info(f"Uploaded {local_file_path} → s3://{self.bucket_name}/{s3_key}")
+        except Exception as e:
+            raise NetworkSecurityException(e, sys)
         
     def track_mlflow(self, best_model, classificationmetric):
+        if mlflow.active_run() is not None:
+            mlflow.end_run()
+        
         with mlflow.start_run():
-             f1_score = classificationmetric.f1_score
-             precision_score = classificationmetric.precision_score
-             recall_score = classificationmetric.recall_score     
+            f1_score = classificationmetric.f1_score
+            precision_score = classificationmetric.precision_score
+            recall_score = classificationmetric.recall_score
+            
+            # log metrics
+            mlflow.log_metric("f1_score", f1_score)
+            mlflow.log_metric("precision_score", precision_score)
+            mlflow.log_metric("recall_score", recall_score)
+            
+            # save model locally
+            joblib.dump(best_model, "best_model.pkl")
 
-        mlflow.log_metric("f1_score", f1_score)
-        mlflow.log_metric("precision", precision_score)
-        mlflow.log_metric("recall_score", recall_score)
+            # log model as an artifact (not registry)
+            mlflow.log_artifact("best_model.pkl")
 
         # Save the model as an artifact (instead of using registry)
         with tempfile.TemporaryDirectory() as tmpdir:

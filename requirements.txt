@@ -14,5 +14,7 @@ mlflow
 dagshub
 fastapi
 uvicorn
+boto3
+joblib
 
 # -e .
