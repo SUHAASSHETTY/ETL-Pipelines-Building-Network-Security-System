@@ -55,7 +55,7 @@ The system follows a 3-stage ETL pipeline:
    - Stores processed data into relational databases  
    - Enables queries for threat analysis  
 
-![ETL_pipeline](path/to/image.png)
+![ETL_pipeline](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/ETL_pipeline.png)
 
 ---
 
@@ -204,25 +204,25 @@ The project follows a complete **ETL + ML pipeline** integrated with CI/CD:
 - Raw network traffic datasets are stored in the `Network_Data/` folder.
 - `push_data.py` is used to ingest the data into **MongoDB Atlas** for structured storage.
 - `test_mongodb.py` ensures connectivity and validates ingestion.
-- ![Data_ingestion](path/to/image.png)
+![Data_ingestion](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/Data_Ingestion.png)
 
 
 ### 2. Data Validation
 - Validation schemas are defined in the `data_schema/` folder.
 - Incoming data is validated against the schema to ensure consistency and correctness.
 - Cleaned data is stored in the `valid_data/` folder.
-- ![Data_validation](path/to/image.png)
+![Data_validation](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/Data_Validation.png)
 
 ### 3. Data Transformation
 - Preprocessing and feature engineering steps (e.g., handling nulls, encoding categorical data, normalization).
 - Stored under `networksecurity/` components and utilities.
-- ![Data_transformation](path/to/image.png)
+![Data_transformation](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/Data_transformation.png)
 
 ### 4. Model Training & Experiment Tracking
 - `main.py` is used for model training and evaluation.
 - Multiple models are tried, and the best one is stored as `best_model.pkl`.
 - **MLflow** (stored in `mlruns/`) is used for experiment tracking and versioning.
-- ![Mode_training](path/to/image.png)
+![Mode_training](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/Model_training.png)
 
 ### 5. Prediction
 - Final predictions are saved in the `prediction_output/` folder.
@@ -232,7 +232,7 @@ The project follows a complete **ETL + ML pipeline** integrated with CI/CD:
 - `app.py` exposes a **Flask API** for real-time inference.
 - Dockerfile is provided to containerize the application.
 - CI/CD is configured via **GitHub Actions** to deploy the container to **AWS ECR + EC2**.
-- ![Deployment](path/to/image.png)
+![Deployment](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/Deployment.png)
 
 
 ---
@@ -240,7 +240,7 @@ The project follows a complete **ETL + ML pipeline** integrated with CI/CD:
 
  **End-to-End Flow:**
 
-![Project_Structure](images/etl_workflow.png)
+![Project_Structure](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/Project_structure.png)
 ---
 
 ## Results & Insights
@@ -252,7 +252,7 @@ The project follows a complete **ETL + ML pipeline** integrated with CI/CD:
 ## CI/CD-CD Workflow
 GitHub Actions integrated with self-hosted runner (AWS EC2)
 Workflow: On push → Run ETL jobs → Store data in DB → Generate reports
-![CI_CD-CD](images/etl_workflow.png)
+![CI_CD-CD](https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System/blob/b38c8682420d89198ece451d56eaa8ad7563d56a/Images/CI_CD-CD.png)
 
 ---
 
