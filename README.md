@@ -12,7 +12,7 @@ By implementing this pipeline, security analysts can **reduce manual effort**, e
 
 ---
 
-## Key Features  
+## Key Features 
 
 - **Automated Data Ingestion**: Supports multiple formats (CSV, JSON, log files)  
 - **Data Cleaning & Transformation**: Handles missing values, normalizes IPs, extracts key security features  
@@ -69,48 +69,55 @@ The system follows a 3-stage ETL pipeline:
 
 ### Steps  
 
-Clone the repository:  
+1. Clone the repository: 
+
 ```bash
 git clone https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System.git
 cd ETL-Pipelines-Building-Network-Security-System
----
-Install dependencies:
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
----
-Create virtual environment:
+```
+
+3. Create virtual environment:
 ```bash
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
----
-Create virtual environment:
+```
+
+4. Create virtual environment:
 ```bash
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
-venv\Scripts\activate  
----
-Run ETL pipeline:
+venv\Scripts\activate
+``` 
+
+5. Run ETL pipeline:
 ```bash
 python src/extract.py
 python src/transform.py
 python src/load.py
----
-Run the training pipeline:
+```
+
+6. Run the training pipeline:
 ```bash
 python main.py
----
-Start the flask app for prediction
+```
+
+7. Start the flask app for prediction
 ```bash
 python app.py
----
+```
+
 The API/UI will be available at: http://127.0.0.1:5000/
 
 
 ---
 
-
-**## Project strcuture**
+## Project strcuture
 
 ```bash
 ├── .github/
@@ -184,7 +191,7 @@ The API/UI will be available at: http://127.0.0.1:5000/
 ├── requirements.txt                 # Python dependencies
 ├── setup.py                         # Package installer
 └── test_mongodb.py                  # MongoDB connection & test script
-
+```
 
 ---
 
@@ -250,11 +257,11 @@ Workflow: On push → Run ETL jobs → Store data in DB → Generate reports
 ---
 
 ##  Contributing
-### 1. Fork the repo
-### 2. Create feature branch (git checkout -b feature/new-feature)
-### 3. Commit changes (git commit -m "Added new feature")
-### 4. Push (git push origin feature/new-feature)
-### 5. Open Pull Request
+ 1. Fork the repo
+ 2. Create feature branch (git checkout -b feature/new-feature)
+ 3. Commit changes (git commit -m "Added new feature")
+ 4. Push (git push origin feature/new-feature)
+ 5. Open Pull Request
 
 ---
 
