@@ -73,41 +73,42 @@ Clone the repository:
 ```bash
 git clone https://github.com/SUHAASSHETTY/ETL-Pipelines-Building-Network-Security-System.git
 cd ETL-Pipelines-Building-Network-Security-System
-
+---
 Install dependencies:
 ```bash
 pip install -r requirements.txt
-
+---
 Create virtual environment:
 ```bash
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate      # On Windows
-
+---
 Create virtual environment:
 ```bash
 python3 -m venv venv
 source venv/bin/activate   # On Linux/Mac
 venv\Scripts\activate  
-
+---
 Run ETL pipeline:
 ```bash
 python src/extract.py
 python src/transform.py
 python src/load.py
-
+---
 Run the training pipeline:
 ```bash
 python main.py
-
+---
 Start the flask app for prediction
 ```bash
 python app.py
-
+---
 The API/UI will be available at: http://127.0.0.1:5000/
 
 
 ---
+
 
 ## Project strcuture
 
@@ -184,7 +185,9 @@ The API/UI will be available at: http://127.0.0.1:5000/
 ├── setup.py                         # Package installer
 └── test_mongodb.py                  # MongoDB connection & test script
 
+
 ---
+
 
 ## 🚀 Usage Workflow
 
@@ -224,7 +227,9 @@ The project follows a complete **ETL + ML pipeline** integrated with CI/CD:
 - CI/CD is configured via **GitHub Actions** to deploy the container to **AWS ECR + EC2**.
 - ![Deployment](path/to/image.png)
 
+
 ---
+
 
  **End-to-End Flow:**
 
@@ -234,12 +239,14 @@ The project follows a complete **ETL + ML pipeline** integrated with CI/CD:
 ## Results & Insights
 - Successfully transformed raw logs into structured tables
 - Data is ready for anomaly detection models
+
 ---
 
 ## CI/CD-CD Workflow
 GitHub Actions integrated with self-hosted runner (AWS EC2)
 Workflow: On push → Run ETL jobs → Store data in DB → Generate reports
 ![CI_CD-CD](images/etl_workflow.png)
+
 ---
 
 ##  Contributing
@@ -248,6 +255,7 @@ Workflow: On push → Run ETL jobs → Store data in DB → Generate reports
 ### 3. Commit changes (git commit -m "Added new feature")
 ### 4. Push (git push origin feature/new-feature)
 ### 5. Open Pull Request
+
 ---
 
 ## 🎯 Conclusion
